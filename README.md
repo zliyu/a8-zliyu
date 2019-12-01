@@ -22,6 +22,7 @@ A basic version will have the following features:
 An intermediate version will also include:
 
 -Ability to set the "survive" and "birth" thresholds to custom values. The default threshold values in the classic game brings a dead cell to life if the number of neighboring live cells is greater than or equal to 2 (low birth threshold) and less than or equal to 3 (high birth threshold) and otherwise stays dead. A living cell survives if the number of neighboring live cells is greater than or equal to 3 (low survive threshold) and less than or equal to 3 (high survive threshold) and otherwise will die. 
+
 -Ability to toggle "torus" mode on or off. In torus mode, the field is treated as if it wraps around the edges back to the other edge.
 
 An  advanced version will additionally have:
