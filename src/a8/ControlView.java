@@ -1,5 +1,7 @@
 package a8;
 
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -38,6 +41,7 @@ public class ControlView extends JPanel implements ActionListener, ChangeListene
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
+		this.add(new JLabel(" "));
 		//size
 		size_label = new JLabel("Size of the field: 30");
 
@@ -57,7 +61,9 @@ public class ControlView extends JPanel implements ActionListener, ChangeListene
 		this.add(size_label);
 		this.add(size_slider);
 		this.add(size_button);
-		this.add(new JLabel("Resizing the field will also clear the field\n Larger field takes longer to load"));
+		this.add(new JLabel("Resizing the field will also clear the field"));
+		this.add(new JLabel("Larger field takes longer to load"));
+		this.add(new JLabel(" "));
 
 		//birth threshold
 		this.add(new JLabel("Birth Thresholds:"));
@@ -90,6 +96,7 @@ public class ControlView extends JPanel implements ActionListener, ChangeListene
 		this.add(birth_label2);
 		this.add(birth_slider1);
 		this.add(birth_slider2);
+		this.add(new JLabel(" "));
 
 		//death threshold
 		this.add(new JLabel("Survive Thresholds:"));
@@ -122,13 +129,16 @@ public class ControlView extends JPanel implements ActionListener, ChangeListene
 		this.add(surv_label2);
 		this.add(surv_slider1);
 		this.add(surv_slider2);
+		this.add(new JLabel(" "));
 
 
 		//torus mode
 		torus_check = new JCheckBox("Torus Mode", false);
+		torus_check.setFont(new Font("Dialog", Font.BOLD, 18));
 		this.add(torus_check);
 		torus_check.setActionCommand("torus");
 		torus_check.addActionListener(this);
+		this.add(new JLabel(" "));
 
 		//actions
 		//button: clear field
@@ -136,18 +146,22 @@ public class ControlView extends JPanel implements ActionListener, ChangeListene
 		this.add(clear_button);
 		clear_button.setActionCommand("clear");
 		clear_button.addActionListener(this);
+		this.add(new JLabel(" "));
 
 		//button: fill field randomly
 		JButton random_button = new JButton("Random Configuration");
 		this.add(random_button);
 		random_button.setActionCommand("random");
 		random_button.addActionListener(this);
+		this.add(new JLabel(" "));
+		this.add(new JLabel(" "));
 
 		//button: next frame
 		JButton next_button = new JButton("Next Frame");
 		this.add(next_button);
 		next_button.setActionCommand("next");
 		next_button.addActionListener(this);
+		this.add(new JLabel(" "));
 
 		//slider: adjust speed
 		speed_label = new JLabel("5 Frames per Second");
@@ -167,6 +181,7 @@ public class ControlView extends JPanel implements ActionListener, ChangeListene
 		this.add(play_button);
 		play_button.setActionCommand("play");
 		play_button.addActionListener(this);
+		this.add(new JLabel(" "));
 
 		//button: stop
 		JButton stop_button = new JButton("Pause");
@@ -175,6 +190,19 @@ public class ControlView extends JPanel implements ActionListener, ChangeListene
 		stop_button.addActionListener(this);
 
 
+		
+		//ui
+		
+		Dimension btn = new Dimension(300, 30);
+		for(Object c : this.getComponents()) {
+			if(c instanceof JButton) {
+				((JButton) c).setFont(new Font("Dialog", Font.BOLD, 15));
+				((JButton) c).setMaximumSize(btn);
+			}
+			if(c instanceof JLabel) {
+				((JLabel)c).setFont(new Font("Dialog", Font.BOLD, 18));
+			}
+		}
 
 	}
 

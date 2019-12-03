@@ -8,8 +8,8 @@ import javax.swing.JPanel;
 
 public class BoardView extends JPanel {
 	
-	private static final int DEFAULT_SCREEN_WIDTH = 800;
-	private static final int DEFAULT_SCREEN_HEIGHT = 800;
+	private static final int DEFAULT_SCREEN_WIDTH = 950;
+	private static final int DEFAULT_SCREEN_HEIGHT = 950;
 
 	private Board _board;
 //	private int _height;
